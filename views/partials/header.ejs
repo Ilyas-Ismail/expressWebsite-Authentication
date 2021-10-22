@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Adding stylesheets and metadata -->
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/@fortawesome/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="icon" href="/images/icon.png">
+  <title><%= title %></title>
+</head>
+
+<!-- Creating the navigation bar, as well as adding some style to it -->
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <!-- Brand/logo -->
+    <a class="navbar-brand" id="bar" href="/">&nbsp;&nbsp;&nbsp;&nbsp;<img src="/images/icon.png"></a>
+    
+    <!-- Links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <% if (title == 'Home') { %> 
+        <a class="nav-link active" href="/">
+          <% } else { %>
+            <a class ="nav-link" href="/">
+              <% } %>
+              Home&nbsp;</a>
+      </li>
+      <li class="nav-item">
+        <% if (title == 'Services') { %> 
+        <a class="nav-link active" href="/services">
+          <% } else { %>
+            <a class ="nav-link" href="/services">
+              <% } %>
+              Services&nbsp;</a>
+      </li>
+      <li class="nav-item">
+        <% if (title == 'Projects') { %> 
+        <a class="nav-link active" href="/projects">
+          <% } else { %>
+            <a class ="nav-link" href="/projects">
+              <% } %>
+              Projects&nbsp;</a>
+      </li>
+      <li class="nav-item">
+        <% if (title == 'About Me') { %> 
+        <a class="nav-link active" href="/about">
+          <% } else { %>
+            <a class ="nav-link" href="/about">
+              <% } %>
+              About Me&nbsp;</a>
+      </li>
+      <li class="nav-item">
+        <% if (title == 'Contact Me') { %> 
+        <a class="nav-link active" href="/contact">
+          <% } else { %>
+            <a class ="nav-link" href="/contact">
+              <% } %>
+              Contact Me&nbsp;</a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Adding two new lines to make the site more visually appealing -->
+
+  <br><br>
+<body>
