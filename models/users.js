@@ -1,6 +1,9 @@
 let mongoose = require('mongoose');
+let passportLocalMongoose = require('passport-local-mongoose');
 
-let usersModel = mongoose.Schema(
+// creating a blueprint for users.
+
+let userModel = mongoose.Schema(
     {
         username: String,
         password: String,
@@ -11,4 +14,4 @@ let usersModel = mongoose.Schema(
     }
 );
 
-module.exports = mongoose.model('Users', usersModel);
+module.exports.userModel = mongoose.model('Users', userModel);

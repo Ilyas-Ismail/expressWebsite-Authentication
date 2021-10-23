@@ -1,4 +1,43 @@
 <% include partials/header.ejs %>
 
+<main class="container">
+
+    <div class="row">
+        <div class="col-md-4 col-md-4">
+            <h1>Please Login</h1>
+            <form action="/login" method="POST">
+                <fieldset class="form-group">
+                    <label for="username">Username: </label>
+                    <input type="text" class="form-control"
+                    name="username" placeholer="Enter Your Username"
+                    id="username" required autofocus>
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label for="email">E-Mail: </label>
+                    <input type="text" class="form-control"
+                    name="email" placeholer="Enter Your E-Mail"
+                    id="email" required>
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label for="password">Password: </label>
+                    <input type="password" class="form-control"
+                    name="password" placeholer="Enter Your Password"
+                    id="password" required>
+                </fieldset>
+            </br>
+                <fieldset class="form-group text-right">
+                    <input type="submit" class="btn btn-success" value="Login">
+                    <a href="/">
+                        <input type="button" class="btn btn-warning" value="Cancel">
+                    </a>
+                </fieldset>
+                
+            </form>
+        </div>
+    </div>
+</main>
+
 <% include partials/footer.ejs %>
 <% include partials/scripts.ejs %>

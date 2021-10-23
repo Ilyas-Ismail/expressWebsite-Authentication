@@ -70,6 +70,22 @@
               <% } %>
               Business Contacts&nbsp;</a>
       </li>
+      <li class="nav-item">
+        <% if (title == 'Login') { %> 
+        <a class="nav-link active" href="/login">
+          <% } else { %>
+            <a class ="nav-link" href="/login">
+              <% } %>
+              Login&nbsp;</a>
+      </li>
+      <li class="nav-item">
+        <% if (title == 'Log out') { %> 
+        <a class="nav-link active" href="/logout">
+          <% } else { %>
+            <a class ="nav-link" href="/logout">
+              <% } %>
+              Log Out&nbsp;</a>
+      </li>
     </ul>
   </nav>
 

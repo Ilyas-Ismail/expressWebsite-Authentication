@@ -6,15 +6,28 @@
 var express = require('express');
 var router = express.Router();
 let mongoose = require('mongoose');
+
+let passport = require('passport');
+
 let businessContactsController = require('../controllers/businessContacts');
 
+function requireAuth(req, res, next)
+{
+    // check if the user is logged in
+    if(!req.isAuthenticated())
+    {
+        return res.redirect('/login');
+    }
+    next();
+}
+
 /* GET business contacts listing. */
-router.get('/', businessContactsController.list);
+router.get('/', requireAuth, businessContactsController.list);
 
 // Edit business contact listing.
-router.get('/edit/:id', businessContactsController.edit);
-router.post('/edit/:id', businessContactsController.processEdit);
+router.get('/edit/:id', requireAuth, businessContactsController.edit);
+router.post('/edit/:id', requireAuth, businessContactsController.processEdit);
 
-router.get('/delete/:id', businessContactsController.delete);
+router.get('/delete/:id', requireAuth, businessContactsController.delete);
 
 module.exports = router;

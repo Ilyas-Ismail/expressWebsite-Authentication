@@ -1,6 +1,8 @@
 // connect to the model.
 let businessContacts = require('../models/businessContacts');
 
+// listing the documents inside "contacts" db and organizing by name.
+
 module.exports.list = function(req, res, next) {
     businessContacts.find(
         (err, businessContactsList) => {
@@ -36,6 +38,8 @@ module.exports.edit = function(req, res, next) {
     });
 }
 
+// editting then updating a document inside the db.
+
 module.exports.processEdit = function(req, res, next) {
     let id = req.params.id;
 
@@ -58,6 +62,8 @@ module.exports.processEdit = function(req, res, next) {
         }
     });
 }
+
+// removing a document from the db.
 
 module.exports.delete = (req, res, next) => {
     let id = req.params.id;
