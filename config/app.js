@@ -9,29 +9,44 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+let mongoose = require('mongoose');
 
-// associating varibles to route the other js files.
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+
+// setting up the database.
+let dbURI = require('./db');
+
+// connect to the database and return connection.
+mongoose.connect(dbURI.URI);
+let mongoDB = mongoose.connection;
+mongoDB.on('error', console.error.bind(console, 'Connection Error:'));
+mongoDB.once('open', ()=>{
+  console.log('Connected to MongoDB...');
+});
+
+// associating variables to route the other js files.
+var indexRouter = require('../routes/index');
+var usersRouter = require('../routes/users');
+var businessContactsRouter = require('../routes/businessContacts');
 const { builtinModules } = require('module');
 
 var app = express();
 
 // view engine setup, configuring the express application.
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, '../views'));
 app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'node_modules')));
-app.use(express.static(path.join(__dirname, 'Scripts')));
+app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, '../node_modules')));
+app.use(express.static(path.join(__dirname, '../Scripts')));
 
 // getting routing information.
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/businessContacts', businessContactsRouter);
 
 // catch 404 and forward to error handler.
 app.use(function(req, res, next) {
