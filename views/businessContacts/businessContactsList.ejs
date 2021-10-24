@@ -6,7 +6,7 @@
             <br>
             <table class="table table-bordered table-hover">
                 <!-- Header Row-->
-                <tr class="d-flex">
+                <tr class="table">
                     <th class="text-center col-2">Name</th>
                     <th class="text-center col-2">Phone Number</th>
                     <th class="text-center col-4">E-Mail</th>
@@ -16,7 +16,7 @@
                 <!-- Repeatable Template Row -->
 
                 <% for(let i = 0; i < businessContactsList.length; i++) { %>
-                    <tr class="d-flex">
+                    <tr class="table">
                         <td class="text-center col-2"><%= businessContactsList[i].name %></td>
                         <td class="text-center col-2"><%= businessContactsList[i].pNumber %></td>
                         <td class="text-center col-4"><%= businessContactsList[i].email %></td>
